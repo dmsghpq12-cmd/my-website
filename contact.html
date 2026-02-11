@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FNBKOREA | 문의</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">FNBKOREA</a>
+    <nav class="nav">
+      <a href="company.html">회사소개</a>
+      <a href="products.html">제품</a>
+      <a href="contact.html" aria-current="page">문의</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero-sub">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1 class="h1">문의</h1>
+      <p class="lead">문의 내용을 작성해주시면 빠르게 확인 후 회신드리겠습니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:700px;">
+      <div class="panel">
+        <div class="panel-head">
+          <h2 class="h3">문의 작성</h2>
+        </div>
+
+        <div class="panel-body">
+          <form class="form" onsubmit="return false;">
+            
+            <label>회사명</label>
+            <input type="text" placeholder="회사명을 입력하세요" />
+
+            <label>담당자명</label>
+            <input type="text" placeholder="담당자명을 입력하세요" />
+
+            <label>이메일</label>
+            <input type="email" placeholder="example@company.com" />
+
+            <label>전화번호</label>
+            <input type="tel" placeholder="000-0000-0000" />
+
+            <label>문의 내용</label>
+            <textarea rows="6" placeholder="문의 내용을 입력하세요"></textarea>
+
+            <button class="btn btn-primary btn-block" type="submit">
+              문의 보내기
+            </button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer"></div>
+
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
+
+</body>
+</html>

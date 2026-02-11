@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FNBKOREA | 회사소개</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">FNBKOREA</a>
+    <nav class="nav">
+      <a href="company.html" aria-current="page">회사소개</a>
+      <a href="products.html" >제품</a>
+      <a href="contact.html" >문의</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero hero-sub">
+    <div class="container">
+      <p class="eyebrow">Company</p>
+      <h1 class="h1">회사소개</h1>
+      <p class="lead">기본 틀입니다. 내용은 추후 채워넣기.</p>
+    </div>
+  </section>
+
+  <section class="section">
+  <div class="container grid-2">
+    <div class="panel">
+      <div class="panel-head">
+        <h2 class="h3">회사 개요</h2><span class="badge">Overview</span>
+      </div>
+      <div class="panel-body">
+        <div class="kv">
+          <div class="kv-k">회사명</div><div class="kv-v">FNBKOREA Inc.</div>
+          <div class="kv-k">사업분야</div><div class="kv-v">(추후 입력)</div>
+          <div class="kv-k">연락처</div><div class="kv-v">(추후 입력)</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head">
+        <h2 class="h3">핵심 가치</h2><span class="badge">Values</span>
+      </div>
+      <div class="panel-body">
+        <div class="pill-row">
+          <span class="pill">품질</span><span class="pill">납기</span><span class="pill">신뢰</span><span class="pill">안정공급</span>
+        </div>
+        <div class="divider"></div>
+        <p class="muted">설명 문구는 추후 추가</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="footer"></div>
+
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
+
+</body>
+</html>
