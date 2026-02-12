@@ -1,115 +1,147 @@
-// 제품 게시판 (No / 사진 / 제품명 / 색상 / 사이즈) + 제품명 클릭 => 상세페이지 이동
-// detail.html?cat=marker&id=1 형태로 이동합니다.
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FNBKOREA Inc. | 제품</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">FNBKOREA Inc.</a>
+    <nav class="nav">
+      <a href="company.html" >회사소개</a>
+      <a href="products.html" aria-current="page">제품</a>
+      <a href="contact.html" >문의</a>
+    </nav>
+  </div>
+</header>
 
-const DATA = {
-  marker: [
-    { id: 1, name: "산업용 마커", color: "Black", size: "1EA", date: "2026-02-11", img: "images/marker-001.jpg" },
-    { id: 2, name: "오일 마커", color: "Red", size: "1EA", date: "2026-02-10", img: "images/marker-002.jpg" },
-  ],
-  cttape: [
-    { id: 1, name: "C/T Tape", color: "Transparent", size: "10mm x 50m", date: "2026-02-11", img: "images/ct-001.jpg" },
-  ],
-  material: [
-    { id: 1, name: "공정용 소재", color: "White", size: "Sheet", date: "2026-02-11", img: "images/material-001.jpg" },
-  ],
-};
+<main>
+  <section class="hero hero-sub">
+    <div class="container">
+      <p class="eyebrow">Products</p>
+      <h1 class="h1">제품</h1>
+      <p class="lead">카테고리별 제품 현황</p>
+    </div>
+  </section>
 
-const state = { activeTab: "marker", keyword: "", sort: "latest" };
+  <section class="section">
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active" data-tab="marker">Marker</button>
+      <button class="tab" data-tab="cttape">C/T Tape</button>
+      <button class="tab" data-tab="material">공정용 소재</button>
+    </div>
 
-document.querySelectorAll(".tab").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    state.activeTab = btn.dataset.tab;
+<div class="board-tools">
+  <div class="tool">
+    <label for="searchInput">검색</label>
+    <input id="searchInput" type="text" placeholder="제품명/색상/사이즈 검색" />
+  </div>
 
-    document.querySelectorAll(".board").forEach(sec => sec.classList.remove("active"));
-    document.querySelector(`#board-${state.activeTab}`).classList.add("active");
-    render();
+  <div class="tool tool-sort">
+    <label for="sortSelect">정렬</label>
+    <select id="sortSelect">
+      <option value="latest">최신등록순</option>
+      <option value="name">제품명순</option>
+      <option value="color">색상순</option>
+      <option value="size">사이즈순</option>
+    </select>
+  </div>
+</div>
+
+    <!-- Marker -->
+    <section id="board-marker" class="board active" aria-label="Marker 게시판">
+      <div class="board-head">
+        <h2 class="h3">Marker</h2>
+        <div class="count"><span id="count-marker">0</span> items</div>
+      </div>
+      <div class="table-wrap">
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th style="width:70px;">No</th>
+              <th style="width:90px;">사진</th>
+              <th>제품명</th>
+              <th style="width:160px;">색상</th>
+              <th style="width:180px;">사이즈</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-marker"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="empty-marker">등록된 제품이 없습니다.</div>
+    </section>
+
+    <!-- C/T Tape -->
+    <section id="board-cttape" class="board" aria-label="C/T Tape 게시판">
+      <div class="board-head">
+        <h2 class="h3">C/T Tape</h2>
+        <div class="count"><span id="count-cttape">0</span> items</div>
+      </div>
+      <div class="table-wrap">
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th style="width:70px;">No</th>
+              <th style="width:90px;">사진</th>
+              <th>제품명</th>
+              <th style="width:160px;">색상</th>
+              <th style="width:180px;">사이즈</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-cttape"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="empty-cttape">등록된 제품이 없습니다.</div>
+    </section>
+
+    <!-- 공정용 소재 -->
+    <section id="board-material" class="board" aria-label="공정용 소재 게시판">
+      <div class="board-head">
+        <h2 class="h3">공정용 소재</h2>
+        <div class="count"><span id="count-material">0</span> items</div>
+      </div>
+      <div class="table-wrap">
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th style="width:70px;">No</th>
+              <th style="width:90px;">사진</th>
+              <th>제품명</th>
+              <th style="width:160px;">색상</th>
+              <th style="width:180px;">사이즈</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-material"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="empty-material">등록된 제품이 없습니다.</div>
+    </section>
+
+  </div>
+</section>
+<!-- 이미지 모달 -->
+<div id="imageModal" class="image-modal">
+  <span class="image-close">&times;</span>
+  <img class="image-modal-content" id="modalImage">
+</div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
   });
-});
+</script>
 
-document.getElementById("searchInput")?.addEventListener("input", (e) => {
-  state.keyword = e.target.value.trim().toLowerCase();
-  render();
-});
+<script src="data.js"></script>
+<script src="products.js" defer></script>
 
-document.getElementById("sortSelect")?.addEventListener("change", (e) => {
-  state.sort = e.target.value;
-  render();
-});
-
-function sortItems(items) {
-  const arr = [...items];
-  if (state.sort === "name") arr.sort((a,b) => (a.name||"").localeCompare(b.name||"", "ko"));
-  else if (state.sort === "color") arr.sort((a,b) => (a.color||"").localeCompare(b.color||"", "ko"));
-  else if (state.sort === "size") arr.sort((a,b) => (a.size||"").localeCompare(b.size||"", "ko"));
-  else arr.sort((a,b) => (b.date||"").localeCompare(a.date||"")); // latest
-  return arr;
-}
-
-function filterItems(items) {
-  if (!state.keyword) return items;
-  return items.filter(it => {
-    const hay = `${it.name||""} ${it.color||""} ${it.size||""}`.toLowerCase();
-    return hay.includes(state.keyword);
-  });
-}
-
-function renderBoard(key) {
-  const tbody = document.getElementById(`tbody-${key}`);
-  const empty = document.getElementById(`empty-${key}`);
-  const count = document.getElementById(`count-${key}`);
-
-  let items = DATA[key] || [];
-  items = filterItems(items);
-  items = sortItems(items);
-
-  if(count) count.textContent = items.length;
-  if(tbody) tbody.innerHTML = "";
-
-  if (items.length === 0) { if(empty) empty.style.display = "block"; return; }
-  if(empty) empty.style.display = "none";
-
-  items.forEach((it, idx) => {
-    const tr = document.createElement("tr");
-
-    // 상세페이지 링크 (cat, id)
-    const href = `detail.html?cat=${encodeURIComponent(key)}&id=${encodeURIComponent(it.id)}`;
-
-    tr.innerHTML = `
-      <td>${idx + 1}</td>
-      <td>
-        <div class="thumb">
-          <img src="${escapeHtml(it.img || 'images/no-image.png')}"
-               alt="${escapeHtml(it.name || 'product')}"
-               loading="lazy">
-        </div>
-      </td>
-      <td>
-        <div class="title">
-          <a class="link" href="${href}">${escapeHtml(it.name || "-")}</a>
-        </div>
-      </td>
-      <td>${escapeHtml(it.color || "-")}</td>
-      <td>${escapeHtml(it.size || "-")}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
-function render(){
-  renderBoard("marker");
-  renderBoard("cttape");
-  renderBoard("material");
-}
-
-function escapeHtml(str) {
-  return String(str)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-render();
+</body>
+</html>
