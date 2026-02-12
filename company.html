@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FNBKOREA | 회사소개</title>
+  <title>FNBKOREA Inc. | 회사소개</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <header class="header">
   <div class="container header-inner">
-    <a class="brand" href="index.html">FNBKOREA</a>
+    <a class="brand" href="index.html">FNBKOREA Inc.</a>
     <nav class="nav">
       <a href="company.html" aria-current="page">회사소개</a>
       <a href="products.html" >제품</a>
@@ -19,42 +19,51 @@
 </header>
 
 <main>
-  <section class="hero hero-sub">
-    <div class="container">
-      <p class="eyebrow">Company</p>
-      <h1 class="h1">회사소개</h1>
-      <p class="lead">기본 틀입니다. 내용은 추후 채워넣기.</p>
+  <!-- 상단: 배경사진 + 문구 -->
+  <section class="about-hero" style="--about-hero: url('images/company-hero.jpg');">
+    <div class="about-hero-overlay"></div>
+    <div class="container about-hero-inner">
+      <h1 class="about-title">회사소개</h1>
+      <p class="about-lead">우리제품을 애용해주셔서 감사합니다.</p>
+
+      <!-- 아래로 내려가게 유도하는 버튼(선택) -->
     </div>
   </section>
 
-  <section class="section">
-  <div class="container grid-2">
-    <div class="panel">
-      <div class="panel-head">
-        <h2 class="h3">회사 개요</h2><span class="badge">Overview</span>
-      </div>
-      <div class="panel-body">
-        <div class="kv">
-          <div class="kv-k">회사명</div><div class="kv-v">FNBKOREA Inc.</div>
-          <div class="kv-k">사업분야</div><div class="kv-v">(추후 입력)</div>
-          <div class="kv-k">연락처</div><div class="kv-v">(추후 입력)</div>
+  <!-- 스크롤 내리면 바로 CEO 인사말 -->
+  <section id="ceo" class="section">
+    <div class="container">
+      <div class="panel">
+        <div class="panel-head">
+          <h2 class="h3">CEO 인사말</h2>
         </div>
+
+        <div class="ceo-wrap">
+          <!-- 왼쪽: CEO 사진 -->
+          <div class="ceo-photo">
+            <img src="images/ceo.jpg" alt="CEO photo" loading="lazy">
+          </div>
+
+          <!-- 오른쪽: 인사말 -->
+          <div class="ceo-text">
+            <p style="margin:0 0 10px; font-weight:900; font-size:18px;">
+              안녕하십니까. FNBKOREA Inc. 입니다.
+            </p>
+
+            <p class="muted" style="margin:0; line-height:1.85;">
+              (인사말 수정 중)
+              <br><br>
+              FNBKOREA Inc.는 품질과 납기, 안정공급을 최우선 가치로
+              고객과 함께 성장하겠습니다.
+              <br><br>
+              감사합니다.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="panel">
-      <div class="panel-head">
-        <h2 class="h3">핵심 가치</h2><span class="badge">Values</span>
-      </div>
-      <div class="panel-body">
-        <div class="pill-row">
-          <span class="pill">품질</span><span class="pill">납기</span><span class="pill">신뢰</span><span class="pill">안정공급</span>
-        </div>
-        <div class="divider"></div>
-        <p class="muted">설명 문구는 추후 추가</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <div id="footer"></div>
