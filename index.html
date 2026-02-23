@@ -4,30 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FNBKOREA Inc.</title>
+
   <style>
-    /* 화면 전체를 이미지로 채우기 */
     html, body {
-      width: 100%;
-      height: 100%;
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      background: #000;
+      height: 100%;
+      background: #000; /* 여백 색상 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* 이미지: 비율 유지 + 화면 꽉 채움 (잘릴 수는 있음) */
-    .bg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;          /* 비율 유지하면서 꽉 채움 */
-      object-position: center;    /* 가운데 기준 */
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
       display: block;
-      image-rendering: auto;
     }
   </style>
 </head>
+
 <body>
-  <!-- 사진 파일명/경로만 맞추면 됨 -->
-  <img class="bg" src="images/wait.jpg" alt="FNBKOREA 홈페이지 준비중" />
+  <img src="images/wait.jpg" alt="FNBKOREA 홈페이지 준비중">
 </body>
 </html>
