@@ -21,12 +21,20 @@ html, body{
 }
 
 .page{
-  height:100%;
+  min-height:100vh;            /* ✅ 글씨 안 잘리게: height 고정 대신 min-height */
+  height:auto;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:20px;
+  padding:32px 20px;           /* ✅ 위아래 여백 늘려서 큰 글씨도 안전 */
   box-sizing:border-box;
+  overflow:hidden;             /* 가로 넘침만 방지하려면 아래처럼 바꿔도 됨 */
+}
+
+/* ✅ 세로는 필요하면 스크롤 가능하게 */
+body{
+  overflow-x:hidden;
+  overflow-y:auto;
 }
 
 .stage{
@@ -51,6 +59,7 @@ html, body{
   max-width:60%;
   color:#fff;
   text-align:left;
+  padding:10px 0;              /* ✅ 살짝 패딩으로 잘림 방지 */
 }
 
 /* 제목 */
@@ -61,10 +70,11 @@ h1{
   letter-spacing:-0.03em;
   white-space:nowrap;
 
-  background: linear-gradient(90deg, #ffffff 0%, #d7ecff 55%, #ffffff 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+  /* ✅ 그라데이션 제거: 그냥 흰색 텍스트로 */
+  background:none;
+  -webkit-background-clip:initial;
+  background-clip:initial;
+  color:#ffffff;
 
   text-shadow:0 6px 24px rgba(0,0,0,.45);
 }
@@ -90,11 +100,13 @@ p{
   grid-template-columns:95px auto;
   gap:10px;
   margin-bottom:8px;
+  align-items:center;          /* ✅ 라벨/값 세로 정렬 안정 */
 }
 
 .info strong{
   font-weight:700;
   opacity:.9;
+  letter-spacing:0.02em;       /* ✅ 라벨 자간 조금 정리 */
 }
 
 .info a{
@@ -109,6 +121,10 @@ p{
 
 /* 모바일 */
 @media (max-width:680px){
+  .page{
+    padding:28px 16px;         /* ✅ 모바일에서도 위아래 여백 확보 */
+  }
+
   .text{
     top:45%;
     left:6%;
@@ -116,12 +132,20 @@ p{
   }
 
   h1{
-    white-space:normal;
+    white-space:nowrap;        /* ✅ “홈페이지 준비중입니다!” 한줄 유지 원하면 유지 */
     font-size:44px;
   }
 
   .row{
     grid-template-columns:80px auto;
+  }
+}
+
+/* ✅ 아주 작은 화면에서는 제목이 진짜로 넘칠 수 있어서 예외 처리 */
+@media (max-width:380px){
+  h1{
+    white-space:normal;        /* 초소형에서는 줄바꿈 허용 */
+    line-height:1.1;
   }
 }
 </style>
