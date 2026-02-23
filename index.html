@@ -1,52 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FNBKOREA Inc. | Home</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>FNBKOREA Inc.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .hero {
+            height: 100vh;
+            background: url("images/wait.jpg") no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact {
+            font-size: 18px;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header class="header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html">FNBKOREA Inc.</a>
-    <nav class="nav">
-      <a href="company.html">회사소개</a>
-      <a href="products.html">제품</a>
-      <a href="contact.html">문의</a>
-    </nav>
-  </div>
-</header>
+    <div class="hero">
+        <div class="overlay">
+            <h1>홈페이지 준비중입니다!</h1>
+            <p>새로운 홈페이지를 준비하고 있습니다.<br>
+            빠른 시일 내에 찾아뵙겠습니다.</p>
 
-<main>
-  <!-- 메인: 사진 1장 + 중앙 텍스트 -->
-  <section class="hero-photo" style="--hero-image: url('images/main-hero.jpg');">
-    <div class="hero-overlay"></div>
-    <div class="hero-center container">
-<h1 class="hero-title">
-  FNBKOREA <span class="hero-inc">Inc.</span>
-</h1>
-      <p class="hero-subtitle">
-        저희 회사 제품을 애용해주셔서 진심으로 감사드립니다.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="products.html">제품 보기</a>
-        <a class="btn btn-ghost" href="contact.html">문의하기</a>
-      </div>
+            <div class="contact">
+                📧 ykjang@fnbkorea.com<br>
+                📍 대구 수성구 알파시티1로42길 28
+            </div>
+        </div>
     </div>
-  </section>
-</main>
-
-<div id="footer"></div>
-
-<script>
-fetch("footer.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("footer").innerHTML = data;
-  });
-</script>
 
 </body>
 </html>
