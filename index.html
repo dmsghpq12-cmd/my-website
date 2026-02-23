@@ -1,112 +1,70 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FNBKOREA Inc.</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FNBKOREA Inc.</title>
 
-  <style>
-    :root{
-      --card-bg: rgba(0,0,0,0.40);
-      --text: #ffffff;
-      --subtext: rgba(255,255,255,0.88);
-    }
+<style>
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR",
+                 "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background-color: #000; /* 여백 색상 */
+}
 
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: system-ui, -apple-system, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
-      background: #000;
-    }
+.wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: #000 url("images/wait.jpg") no-repeat center center;
+    background-size: contain; /* ⭐ 전체 이미지 다 보이게 */
+}
 
-    /* 배경 이미지 */
-    .wrap{
-      min-height: 100%;
-      display: grid;
-      place-items: center;
-      background: url("images/wait.jpg") center / cover no-repeat;
-    }
+.content {
+    margin-left: 8%;
+    color: #ffffff;
+    max-width: 520px;
+}
 
-    /* 사진이 잘리지 않게 전체 보이게(여백 생길 수 있음) */
-    @media (prefers-reduced-motion: no-preference) {
-      .wrap{ transition: background-size .2s ease; }
-    }
+h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.35);
+}
 
-    /* 내용 카드 */
-    .card{
-      width: min(720px, calc(100% - 32px));
-      padding: 28px 26px;
-      border-radius: 14px;
-      background: var(--card-bg);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      color: var(--text);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
+p {
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
 
-    h1{
-      margin: 0 0 12px 0;
-      font-size: clamp(28px, 4vw, 44px);
-      letter-spacing: -0.02em;
-    }
-
-    p{
-      margin: 0 0 18px 0;
-      color: var(--subtext);
-      font-size: clamp(14px, 2vw, 18px);
-      line-height: 1.6;
-      letter-spacing: -0.01em;
-    }
-
-    .info{
-      display: grid;
-      gap: 10px;
-      margin-top: 10px;
-      font-size: clamp(13px, 1.8vw, 16px);
-      color: rgba(255,255,255,0.9);
-    }
-
-    .row{
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      word-break: keep-all;
-    }
-
-    .icon{
-      width: 18px;
-      flex: 0 0 18px;
-      opacity: 0.95;
-      margin-top: 2px;
-    }
-
-    a{ color: #fff; text-decoration: none; }
-    a:hover{ text-decoration: underline; }
-
-    /* 모바일에서 카드 위치 살짝 위로 */
-    @media (max-width: 480px){
-      .card{ padding: 22px 18px; }
-    }
-  </style>
+.info {
+    font-size: clamp(14px, 1.8vw, 16px);
+    line-height: 1.8;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+</style>
 </head>
 
 <body>
-  <main class="wrap">
-    <section class="card" aria-label="홈페이지 준비중 안내">
-      <h1>홈페이지 준비중입니다</h1>
-      <p>새로운 홈페이지를 준비하고 있습니다. 업데이트를 기대해주세요.</p>
+<div class="wrapper">
+    <div class="content">
+        <h1>홈페이지 준비 중입니다.</h1>
+        <p>
+            새로운 홈페이지를 준비하고 있습니다.<br>
+            업데이트를 기대해 주세요.
+        </p>
 
-      <div class="info">
-        <div class="row">
-          <span class="icon">✉️</span>
-          <span><a href="mailto:ykjang@fnbkorea.com">ykjang@fnbkorea.com</a></span>
+        <div class="info">
+            ykjang@fnbkorea.com<br>
+            대구 수성구 알파시티1로42길 28
         </div>
-        <div class="row">
-          <span class="icon">📍</span>
-          <span>대구 수성구 알파시티1로42길 28</span>
-        </div>
-      </div>
-    </section>
-  </main>
+    </div>
+</div>
 </body>
 </html>
