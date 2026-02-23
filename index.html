@@ -5,134 +5,154 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FNBKOREA Inc.</title>
 
+<!-- 고급 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+
 <style>
-html, body {
-    height: 100%;
-    margin: 0;
-    background: #000;
-    font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+html, body{
+  height:100%;
+  margin:0;
+  background:#000;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.page {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
+.page{
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  box-sizing:border-box;
 }
 
-.stage {
-    position: relative;
+.stage{
+  position:relative;
 }
 
-.stage img {
-    max-width: 95vw;
-    max-height: 95vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
+.stage img{
+  max-width:95vw;
+  max-height:95vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
 }
 
 /* 텍스트 */
-.text {
-    position: absolute;
-    top: 45%;
-    left: 8%;
-    transform: translateY(-50%);
-    max-width: 60%;
-    color: #fff;
-    text-align: left;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+.text{
+  position:absolute;
+  top:48%;
+  left:7%;
+  transform:translateY(-50%);
+  max-width:60%;
+  color:#fff;
+  text-align:left;
 }
 
-/* 제목 한 줄 고정 */
-h1 {
-    margin: 0 0 30px 0;
-    font-size: clamp(48px, 5.5vw, 82px);
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    white-space: nowrap; /* 🔥 한 줄 유지 */
+/* 제목 */
+h1{
+  margin:0 0 20px 0;
+  font-size:clamp(60px, 6vw, 100px);
+  font-weight:800;
+  letter-spacing:-0.03em;
+  white-space:nowrap;
+
+  background: linear-gradient(90deg, #ffffff 0%, #d7ecff 55%, #ffffff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+
+  text-shadow:0 6px 24px rgba(0,0,0,.45);
 }
 
 /* 설명 */
-p {
-    margin: 0 0 40px 0;
-    font-size: clamp(22px, 2.4vw, 28px);
-    line-height: 1.6;
-    letter-spacing: -0.01em;
+p{
+  margin:0 0 30px 0;
+  font-size:clamp(24px, 2.6vw, 32px);
+  line-height:1.6;
+  font-weight:500;
+  color:rgba(255,255,255,.92);
+  text-shadow:0 4px 18px rgba(0,0,0,.35);
 }
 
 /* 정보 */
-.info {
-    font-size: clamp(18px, 1.6vw, 22px);
-    line-height: 2;
+.info{
+  font-size:clamp(18px, 1.8vw, 22px);
+  line-height:2;
 }
 
-/* 라벨 정렬 정확하게 */
-.row {
-    display: grid;
-    grid-template-columns: 90px auto; /* 🔥 라벨 고정폭 */
-    margin-bottom: 10px;
+.row{
+  display:grid;
+  grid-template-columns:95px auto;
+  gap:10px;
+  margin-bottom:8px;
 }
 
-.info strong {
-    font-weight: 600;
-    letter-spacing: -0.01em;
+.info strong{
+  font-weight:700;
+  opacity:.9;
 }
 
-.info span {
-    letter-spacing: 0.01em;
+.info a{
+  color:#fff;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.3);
+}
+
+.info a:hover{
+  border-bottom-color:#fff;
 }
 
 /* 모바일 */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 38px;
-        white-space: normal;
-    }
+@media (max-width:680px){
+  .text{
+    top:45%;
+    left:6%;
+    max-width:85%;
+  }
 
-    .text {
-        top: 42%;
-        max-width: 75%;
-    }
+  h1{
+    white-space:normal;
+    font-size:44px;
+  }
 
-    .row {
-        grid-template-columns: 75px auto;
-    }
+  .row{
+    grid-template-columns:80px auto;
+  }
 }
 </style>
 </head>
 
 <body>
-
 <div class="page">
-    <div class="stage">
-        <img src="images/wait.jpg" alt="FNBKOREA 건물 사진">
+  <div class="stage">
+    <img src="images/wait.jpg" alt="FNBKOREA 건물 사진">
 
-        <div class="text">
-            <h1>홈페이지 준비중입니다!</h1>
+    <div class="text">
+      <h1>홈페이지 준비중입니다!</h1>
 
-            <p>
-                새로운 홈페이지를 준비하고 있습니다.<br>
-                업데이트를 기대해 주세요.
-            </p>
+      <p>
+        새로운 홈페이지를 준비하고 있습니다.<br>
+        업데이트를 기대해 주세요.
+      </p>
 
-            <div class="info">
-                <div class="row">
-                    <strong>이메일 :</strong>
-                    <span>ykjang@fnbkorea.com</span>
-                </div>
-                <div class="row">
-                    <strong>주소 :</strong>
-                    <span>대구 수성구 알파시티1로42길 28</span>
-                </div>
-            </div>
+      <div class="info">
+        <div class="row">
+          <strong>이메일 :</strong>
+          <span><a href="mailto:ykjang@fnbkorea.com">ykjang@fnbkorea.com</a></span>
         </div>
+        <div class="row">
+          <strong>주소 :</strong>
+          <span>대구 수성구 알파시티1로42길 28</span>
+        </div>
+      </div>
 
     </div>
+  </div>
 </div>
-
 </body>
 </html>
