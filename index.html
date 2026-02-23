@@ -1,75 +1,120 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>FNBKOREA Inc.</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FNBKOREA Inc.</title>
 
-<style>
-html, body {
-    margin: 0;
-    height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR",
-                 "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-    background-color: #000; /* 여백 색상 */
-}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000; /* 사진 여백 색상 */
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR",
+                   "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
 
-.wrapper {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    background: #000 url("images/wait.jpg") no-repeat center center;
-    background-size: contain; /* ⭐ 전체 이미지 다 보이게 */
-}
+    /* 화면 중앙에 "무대" */
+    .page {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
 
-.content {
-    margin-left: 8%;
-    color: #ffffff;
-    max-width: 520px;
-}
+    /* 이미지가 차지하는 영역(여기 안에서만 텍스트가 움직임) */
+    .stage {
+      position: relative;
+      max-width: 100%;
+      max-height: 100%;
+    }
 
-h1 {
-    font-size: clamp(32px, 4vw, 48px);
-    margin-bottom: 20px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    text-shadow: 0 3px 12px rgba(0,0,0,0.35);
-}
+    /* 사진: 절대 안 잘리게 contain */
+    .stage img {
+      display: block;
+      max-width: calc(100vw - 32px);
+      max-height: calc(100vh - 32px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
 
-p {
-    font-size: clamp(16px, 2vw, 20px);
-    line-height: 1.6;
-    margin-bottom: 30px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
+    /* 텍스트: 이미지 위에 올리기(이미지 영역 안) */
+    .text {
+      position: absolute;
+      top: 10%;
+      left: 6%;
+      color: #fff;
+      max-width: 52%;
+      text-align: left;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.35);
+    }
 
-.info {
-    font-size: clamp(14px, 1.8vw, 16px);
-    line-height: 1.8;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
-</style>
+    h1 {
+      margin: 0 0 14px 0;
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 18px 0;
+      font-size: clamp(14px, 2vw, 18px);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+
+    .info {
+      font-size: clamp(13px, 1.8vw, 16px);
+      line-height: 1.8;
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+      align-items: baseline;
+    }
+
+    .info strong {
+      min-width: 64px;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    /* 모바일: 글 영역이 너무 넓으면 덜 가리게 폭 줄이고 위로 */
+    @media (max-width: 480px) {
+      .text { top: 7%; left: 5%; max-width: 70%; }
+      .info strong { min-width: 58px; }
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrapper">
-    <div class="content">
+  <div class="page">
+    <div class="stage">
+      <!-- ✅ 네 이미지 경로 -->
+      <img src="images/wait.jpg" alt="FNBKOREA 건물 사진" />
+
+      <!-- ✅ 글자는 이미지 안에서만 표시됨 -->
+      <div class="text">
         <h1>홈페이지 준비 중입니다.</h1>
         <p>
-            새로운 홈페이지를 준비하고 있습니다.<br>
-            업데이트를 기대해 주세요.
+          새로운 홈페이지를 준비하고 있습니다.<br />
+          업데이트를 기대해 주세요.
         </p>
-
-<div class="info">
-    <div class="row">
-        <strong>이메일 :</strong>
-        <span>ykjang@fnbkorea.com</span>
+        <div class="info">
+          <div class="row">
+            <strong>이메일 :</strong><span>ykjang@fnbkorea.com</span>
+          </div>
+          <div class="row">
+            <strong>주소 :</strong><span>대구 수성구 알파시티1로42길 28</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row">
-        <strong>주소 :</strong>
-        <span>대구 수성구 알파시티1로42길 28</span>
-    </div>
-</div>
-</div>
+  </div>
 </body>
 </html>
