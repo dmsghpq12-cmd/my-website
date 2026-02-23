@@ -1,81 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>FNBKOREA Inc.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FNBKOREA Inc.</title>
+  <style>
+    /* 화면 전체를 이미지로 채우기 */
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #000;
+    }
 
-        body, html {
-            height: 100%;
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-
-        .hero {
-            height: 100vh;
-            background: url("images/wait.jpg") no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .overlay {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 40px;
-            border-radius: 12px;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-
-        .contact {
-            font-size: 18px;
-            margin-top: 20px;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 32px;
-            }
-
-            p {
-                font-size: 16px;
-            }
-        }
-    </style>
+    /* 이미지: 비율 유지 + 화면 꽉 채움 (잘릴 수는 있음) */
+    .bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;          /* 비율 유지하면서 꽉 채움 */
+      object-position: center;    /* 가운데 기준 */
+      display: block;
+      image-rendering: auto;
+    }
+  </style>
 </head>
-
 <body>
-
-    <div class="hero">
-        <div class="overlay">
-            <h1>홈페이지 준비중입니다!</h1>
-            <p>새로운 홈페이지를 준비하고 있습니다.<br>
-            빠른 시일 내에 찾아뵙겠습니다.</p>
-
-            <div class="contact">
-                📧 ykjang@fnbkorea.com<br>
-                📍 대구 수성구 알파시티1로42길 28
-            </div>
-        </div>
-    </div>
-
+  <!-- 사진 파일명/경로만 맞추면 됨 -->
+  <img class="bg" src="images/wait.jpg" alt="FNBKOREA 홈페이지 준비중" />
 </body>
 </html>
